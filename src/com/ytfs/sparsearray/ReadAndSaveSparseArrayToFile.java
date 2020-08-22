@@ -9,7 +9,7 @@ import java.io.IOException;
 
 /**
  * @author by ytfs
- * @Description 用一句话描述当前类的作用
+ * @Description 将稀疏数组存入磁盘文件和从磁盘文件还原稀疏数组
  * @Create 2020/8/22-20:37
  */
 public class ReadAndSaveSparseArrayToFile{
@@ -71,7 +71,9 @@ public class ReadAndSaveSparseArrayToFile{
             bufferedReader = new BufferedReader(new FileReader(file));
             //获取文件中的每一行,并且每一行不为空
             String line = null;
+            //记录稀疏数组应该赋值的行数
             int count = 0;
+            //遍历文件中读取到的每一非空行
             while ((line = bufferedReader.readLine()) != null) {
                 String[] tempStr = line.split("\t");
                 if (!readOneRow){
