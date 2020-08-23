@@ -129,10 +129,6 @@ class ArrayQueue {
      * @return
      */
     public int getQueue() {
-//        if (front == maxSize - 1){
-//            front = -1;
-//            rear =- 1;
-//        }
         //判断队列是否为空，空的直接抛出一行
         if (isEmpty()) {
             throw new RuntimeException("队列为空，不能取出数据");
