@@ -86,7 +86,7 @@ class ArrayQueue {
 
         rear = -1;//队列尾，指向队列的最后一个数据的位置
 
-        arr = new int[maxSize];  //出事haunted队列
+        arr = new int[maxSize];  //初始化haunted队列
     }
 
     /**
