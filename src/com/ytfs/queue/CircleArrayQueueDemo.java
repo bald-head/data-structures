@@ -60,7 +60,7 @@ public class CircleArrayQueueDemo {
                     break;
             }
         }
-
+        System.out.println("系统退出····");
     }
 }
 
@@ -111,7 +111,8 @@ class CircleArrayQueue {
      */
     public void addQueue(int number) {
         if (isFull()) {
-            new RuntimeException("队列已满，不能添加元素");
+            System.out.println("队列满，无法加入数据·····");
+            return;
         }
         arr[rear] = number;
         //将rear后移，必须考虑取模
@@ -140,7 +141,7 @@ class CircleArrayQueue {
     }
 
     /**
-     * 取出队列头的数据
+     * 显示队列所有元素
      *
      * @return
      */
@@ -148,9 +149,10 @@ class CircleArrayQueue {
         if (isEmpty()) {
             //当前队列为空，不能取出数据
             System.out.println("队列为空，没有数据·····");
+            return;
         }
         //思路：从front开始遍历，遍历多少个元素呢
-        for (int i = front; i < size(); i++) {
+        for (int i = front; i < front + size(); i++) {
             System.out.printf("arr[%d] = %d\n", i % maxSize, arr[i % maxSize]);
         }
     }
