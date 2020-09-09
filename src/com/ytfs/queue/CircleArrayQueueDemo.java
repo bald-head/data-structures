@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class CircleArrayQueueDemo {
     public static void main(String[] args) {
         //创建h环形队列并且队列长度为3
-        CircleArrayQueue queue = new CircleArrayQueue(3);
+        CircleArrayQueue queue = new CircleArrayQueue(4);//其队列的最大有效数据为3
         boolean loop = true;
         Scanner sc = new Scanner(System.in);
 
