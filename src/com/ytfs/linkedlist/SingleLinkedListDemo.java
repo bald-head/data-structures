@@ -186,6 +186,7 @@ class SingleLinkedList {
         while (true) {
             //判断链表是否为空
             if (temp == null) {
+                System.out.println("链表为空");
                 break;
             }
             System.out.println(temp);
