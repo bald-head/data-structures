@@ -35,9 +35,8 @@ public class SingleLinkedListDemo {
 //        HeroNode newHeroNode = new HeroNode(1, "小宋", "及时雨~~~");
 //        singleLinkedList.update(newHeroNode);
 
-        HeroNode delHeroNode = new HeroNode(3, "吴用", "智多星");
 
-        singleLinkedList.del(delHeroNode);
+        singleLinkedList.del(3);
 
         //输出链表信息
 
@@ -147,9 +146,9 @@ class SingleLinkedList {
     /**
      * 删除节点
      *
-     * @param delHheroNode
+     * @param no
      */
-    public void del(HeroNode delHheroNode) {
+    public void del(int no) {
         if (head.next == null) {
             System.out.println("当前链表为空");
             return;
@@ -163,7 +162,7 @@ class SingleLinkedList {
             if (temp.next == null) {
                 break;
             }
-            if (temp.next.no == delHheroNode.no) {
+            if (temp.next.no == no) {
                 flag = true;
                 break;
             }
