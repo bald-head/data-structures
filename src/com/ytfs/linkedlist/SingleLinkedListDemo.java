@@ -23,12 +23,18 @@ public class SingleLinkedListDemo {
 //        singleLinkedList.add(hero4);
 
 
-
         //添加节点，考虑编号顺序添加
         singleLinkedList.addByOrder(hero1);
         singleLinkedList.addByOrder(hero4);
         singleLinkedList.addByOrder(hero3);
         singleLinkedList.addByOrder(hero2);
+
+        //修改前输出链表信息
+        singleLinkedList.list();
+
+        HeroNode newHeroNode = new HeroNode(1, "小宋", "及时雨~~~");
+
+        singleLinkedList.update(newHeroNode);
 
         //输出链表信息
 
@@ -101,6 +107,37 @@ class SingleLinkedList {
             //在temp后面进行添加
             heroNode.next = temp.next;
             temp.next = heroNode;
+        }
+    }
+
+    /**
+     * 更新节点
+     *
+     * @param newHeroNode
+     */
+    public void update(HeroNode newHeroNode) {
+        if (head.next == null) {
+            System.out.println("当前链表为空");
+            return;
+        }
+        //因为头节点是不能动的，使用中间变量temp来保存头节点
+        HeroNode temp = head;
+        boolean flag = false;   //用来表示链表中是否存在需要修改的节点
+        while (true) {
+            if (temp.next == null) {
+                break;
+            }
+            if (temp.no == newHeroNode.no) {
+                flag = true;
+                break;
+            }
+            temp = temp.next;   //temp后移
+        }
+        if (flag) {
+            temp.name = newHeroNode.name;
+            temp.nickName = newHeroNode.nickName;
+        } else {
+            System.out.printf("没有找到编号为：%d 节点", newHeroNode.no);
         }
     }
 
