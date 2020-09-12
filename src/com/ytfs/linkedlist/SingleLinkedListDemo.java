@@ -16,11 +16,19 @@ public class SingleLinkedListDemo {
 
         //创建一个链表
         SingleLinkedList singleLinkedList = new SingleLinkedList();
-        //添加节点
-        singleLinkedList.add(hero1);
-        singleLinkedList.add(hero2);
-        singleLinkedList.add(hero3);
-        singleLinkedList.add(hero4);
+//        //添加节点
+//        singleLinkedList.add(hero1);
+//        singleLinkedList.add(hero2);
+//        singleLinkedList.add(hero3);
+//        singleLinkedList.add(hero4);
+
+
+
+        //添加节点，考虑编号顺序添加
+        singleLinkedList.addByOrder(hero1);
+        singleLinkedList.addByOrder(hero4);
+        singleLinkedList.addByOrder(hero3);
+        singleLinkedList.addByOrder(hero2);
 
         //输出链表信息
 
@@ -58,7 +66,43 @@ class SingleLinkedList {
         temp.next = heroNode;
     }
 
+    /**
+     * 考虑排序编号添加
+     *
+     * @param heroNode
+     */
+    public void addByOrder(HeroNode heroNode) {
+        //因为头节点是不能动的,使用辅助变量temp寻找位置
+        HeroNode temp = head;
 
+        //用来代表当前添加的节点的编号是否存在，默认false不存在
+        boolean flag = false;
+
+        while (true) {
+            if (temp.next == null) {
+                //当前temp为链表最后一个
+                break;
+            }
+            if (temp.next.no > heroNode.no) {
+                //找到需要添加的位置，就在temp后面添加
+                break;
+            } else if (temp.next.no == heroNode.no) {
+                //需要添加的节点已经存在
+                flag = true;
+                break;
+            }
+            //三个条件不成立  temp后移
+            temp = temp.next;
+        }
+        if (flag) {
+            //不能添加，编号存在
+            System.out.printf("当前添加的英雄编号 %d 已经存在， 不能添加\n", heroNode.no);
+        } else {
+            //在temp后面进行添加
+            heroNode.next = temp.next;
+            temp.next = heroNode;
+        }
+    }
 
     /**
      * 遍历所有的节点
