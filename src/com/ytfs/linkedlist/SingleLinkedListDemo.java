@@ -182,7 +182,7 @@ class SingleLinkedList {
      */
     public void list() {
         //因为头节点是不能动的，使用中间变量temp来保存头节点
-        HeroNode temp = head;
+        HeroNode temp = head.next;
         while (true) {
             //判断链表是否为空
             if (temp == null) {
