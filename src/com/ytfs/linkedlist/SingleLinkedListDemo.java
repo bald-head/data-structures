@@ -169,7 +169,11 @@ class SingleLinkedList {
             temp = temp.next;
         }
         //删除需要删除的节点
-        temp.next = temp.next.next;
+        if (flag) {
+            temp.next = temp.next.next;
+        } else {
+            System.out.printf("不存在编号为 %d 的节点  删除失败\n", no);
+        }
 
     }
 
