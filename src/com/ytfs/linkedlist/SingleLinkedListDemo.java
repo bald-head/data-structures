@@ -54,6 +54,7 @@ class SingleLinkedList {
     //初始化一个头结点,里面什么都不放
     HeroNode head = new HeroNode(0, "", "");
 
+
     /**
      * 向链表中添加一个节点
      * 不考虑编号顺序
