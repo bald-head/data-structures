@@ -29,12 +29,15 @@ public class SingleLinkedListDemo {
         singleLinkedList.addByOrder(hero3);
         singleLinkedList.addByOrder(hero2);
 
-        //修改前输出链表信息
+        //删除前输出链表信息
         singleLinkedList.list();
 
-        HeroNode newHeroNode = new HeroNode(1, "小宋", "及时雨~~~");
+//        HeroNode newHeroNode = new HeroNode(1, "小宋", "及时雨~~~");
+//        singleLinkedList.update(newHeroNode);
 
-        singleLinkedList.update(newHeroNode);
+        HeroNode delHeroNode = new HeroNode(3, "吴用", "智多星");
+
+        singleLinkedList.del(delHeroNode);
 
         //输出链表信息
 
@@ -139,6 +142,36 @@ class SingleLinkedList {
         } else {
             System.out.printf("没有找到编号为：%d 节点", newHeroNode.no);
         }
+    }
+
+    /**
+     * 删除节点
+     *
+     * @param delHheroNode
+     */
+    public void del(HeroNode delHheroNode) {
+        if (head.next == null) {
+            System.out.println("当前链表为空");
+            return;
+        }
+        //因为头节点是不能动的，使用中间变量temp来保存头节点
+        HeroNode temp = head;
+
+        boolean flag = false;   //表示是否找到需要删除的节点
+
+        while (true) {
+            if (temp.next == null) {
+                break;
+            }
+            if (temp.next.no == delHheroNode.no) {
+                flag = true;
+                break;
+            }
+            temp = temp.next;
+        }
+        //删除需要删除的节点
+        temp.next = temp.next.next;
+
     }
 
     /**
