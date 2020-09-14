@@ -29,6 +29,9 @@ public class SingleLinkedListDemo {
         singleLinkedList.addByOrder(hero3);
         singleLinkedList.addByOrder(hero2);
 
+        //查找节点
+        singleLinkedList.findNode(5);
+
         //删除前输出链表信息
         singleLinkedList.list();
 
@@ -141,6 +144,39 @@ class SingleLinkedList {
             temp.nickName = newHeroNode.nickName;
         } else {
             System.out.printf("没有找到编号为：%d 节点", newHeroNode.no);
+        }
+    }
+
+    /**
+     * 查找节点
+     *
+     * @param no
+     */
+    public void findNode(int no) {
+        //因为头结点不能动，使用辅助变量temp
+        HeroNode temp = head;
+        boolean flag = false;//代表是否查找到
+        if (temp.next == null) {
+            System.out.println("当钱链表为空");
+            return;
+        }
+        //遍历链表
+        while (true) {
+            //遍历到最后要给节点
+            if (temp.next == null) {
+                break;
+            }
+            if (temp.no == no) {
+                flag = true;
+                break;
+            }
+            //temp向后移动
+            temp = temp.next;
+        }
+        if (flag) {
+            System.out.println("查找到的节点为：" + temp);
+        } else {
+            System.out.println("未找到节点");
         }
     }
 
