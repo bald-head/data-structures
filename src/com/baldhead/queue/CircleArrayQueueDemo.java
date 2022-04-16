@@ -1,4 +1,4 @@
-package com.ytfs.queue;
+package com.baldhead.queue;
 
 import java.util.Scanner;
 

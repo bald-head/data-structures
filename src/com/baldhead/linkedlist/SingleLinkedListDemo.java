@@ -1,4 +1,4 @@
-package com.ytfs.linkedlist;
+package com.baldhead.linkedlist;
 
 /**
  * @author by ytfs
